@@ -18,7 +18,7 @@ let allMusic = [
     genero: "Rap Brasília",
     bpm: "68",
     tom: "Bm",
-    url: "https://mpago.la/1PDiEc5"
+    url: "https://mpago.la/1WtWL2h"
   },
   {
     name: "Liberdade",
@@ -28,7 +28,7 @@ let allMusic = [
     genero: "Rap Brasília",
     bpm: "64",
     tom: "C#m",
-    url: "https://mpago.la/1T5eFvm"
+    url: "https://mpago.la/2hjMW67"
   },
   {
     name: "Marcha",
@@ -38,7 +38,7 @@ let allMusic = [
     genero: "Rap Brasília",
     bpm: "68",
     tom: "Dm",
-    url: "https://mpago.la/2wnHaNu"
+    url: "https://mpago.la/232SUjc"
   },
   {
     name: "Posturado",
@@ -48,7 +48,7 @@ let allMusic = [
     genero: "Trap",
     bpm: "56",
     tom: "D#m",
-    url: "https://mpago.la/2wj3drA"
+    url: "https://mpago.la/1jaLghY"
   },
 
 
