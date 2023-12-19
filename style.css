@@ -266,7 +266,7 @@ body {
 }
 
 .img-list {
-  width: 50px;
+  width: 60px;
   border-radius: 50%;
   margin-right: -80px;
 }
@@ -305,8 +305,6 @@ body {
   margin: 10px 0;
   max-height: 260px;
   overflow: auto;
-
-
 }
 
 .music-list ul::-webkit-scrollbar {
@@ -366,4 +364,9 @@ ul li.playing {
 .duvidas .copy {
   font-size: 12px;
   margin-top: 20px;
+}
+
+#ouvindo {
+  color: #666;
+  max-width: 20px;
 }

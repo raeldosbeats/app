@@ -27,8 +27,8 @@ function loadMusic(indexNumb) {
   musicName.innerText = allMusic[indexNumb - 1].name;
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   musicGenero.innerText = `Gênero: ${allMusic[indexNumb - 1].genero} | BPM: ${allMusic[indexNumb - 1].bpm} | Tom: ${allMusic[indexNumb - 1].tom}`;
-  musicImg.src = `images/${allMusic[indexNumb - 1].image}.jpg`;
-  mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+  musicImg.src = `https://drive.google.com/uc?id=${allMusic[indexNumb - 1].image}`;
+  mainAudio.src = `https://drive.google.com/uc?id=${allMusic[indexNumb - 1].src}`;
   buyBeat.href = allMusic[indexNumb - 1].url;
 
 }
@@ -184,7 +184,7 @@ const ulTag = wrapper.querySelector("ul");
 for (let i = 0; i < allMusic.length; i++) {
   //let's pass the song name, artist from the array
   let liTag = `<li li-index="${i + 1}">
-                <img class='img-list' src="images/${allMusic[i].image}.jpg"> 
+                <img class='img-list' src="https://drive.google.com/uc?id=${allMusic[i].image}"> 
                 <div class="row">                              
                   <span>${allMusic[i].name}</span>
                   <p style='font-size: 12px'>
@@ -194,7 +194,7 @@ for (let i = 0; i < allMusic.length; i++) {
                   </p>
                 </div>
                 <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
-                <audio class="${allMusic[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
+                <audio class="${allMusic[i].src}" src=""></audio>
               </li>`;
   ulTag.insertAdjacentHTML("beforeend", liTag); //inserting the li inside ul tag
 
@@ -228,7 +228,7 @@ function playingSong() {
     //if the li tag index is equal to the musicIndex then add playing class in it
     if (allLiTag[j].getAttribute("li-index") == musicIndex) {
       allLiTag[j].classList.add("playing");
-      audioTag.innerText = "Ouvindo...";
+      audioTag.innerHTML = `<i id="ouvindo" class="material-icons">music_note</i>`;
     }
 
     allLiTag[j].setAttribute("onclick", "clicked(this)");

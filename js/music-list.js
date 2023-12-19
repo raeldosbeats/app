@@ -13,43 +13,13 @@ let allMusic = [
   {
     name: "Gratidão",
     artist: "Rael dos Beats",
-    image: "tribo-7",
-    src: "Gratidão",
+    image: "1bNAAjwpeDFWPwA4mzBzrsrCR4kG23jS7",
+    src: "1a5by7amb8_NnH5VMEY4d32LtE0Cb1um7",
     genero: "Rap Brasília",
     bpm: "68",
     tom: "Bm",
     url: "https://mpago.la/1WtWL2h"
-  },
-  {
-    name: "Liberdade",
-    artist: "Rael dos Beats",
-    image: "pacificadores-3",
-    src: "Liberdade",
-    genero: "Rap Brasília",
-    bpm: "64",
-    tom: "C#m",
-    url: "https://mpago.la/2hjMW67"
-  },
-  {
-    name: "Marcha",
-    artist: "Rael dos Beats",
-    image: "tribo-8",
-    src: "Marcha",
-    genero: "Rap Brasília",
-    bpm: "68",
-    tom: "Dm",
-    url: "https://mpago.la/232SUjc"
-  },
-  {
-    name: "Posturado",
-    artist: "Rael dos Beats",
-    image: "trap-1",
-    src: "Posturado",
-    genero: "Trap",
-    bpm: "56",
-    tom: "D#m",
-    url: "https://mpago.la/1jaLghY"
-  },
+  }
 
 
 ];
