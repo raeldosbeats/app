@@ -228,7 +228,7 @@ function playingSong() {
     //if the li tag index is equal to the musicIndex then add playing class in it
     if (allLiTag[j].getAttribute("li-index") == musicIndex) {
       allLiTag[j].classList.add("playing");
-      audioTag.innerHTML = "<img class='spectrum-music' src='images/spectrum.gif'>";
+      audioTag.innerText = "Ouvindo...";
     }
 
     allLiTag[j].setAttribute("onclick", "clicked(this)");
