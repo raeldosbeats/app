@@ -45,7 +45,8 @@ function initializeAuthModals() {
             if (userDoc.exists && userDoc.data().isAdmin) {
                 window.location.href = './pages/admin.html'; // Redireciona para a página do administrador
             } else {
-                alert('Login realizado com sucesso!');
+                showNotification('success', 'Login realizado com sucesso!')
+
                 document.getElementById('loginModal').style.display = 'none';
                 document.getElementById('logout-btn').style.display = 'block';
                 document.getElementById('login-btn').style.display = 'none';
@@ -69,8 +70,8 @@ function initializeAuthModals() {
                 email: email,
                 isAdmin: false // Todos os novos usuários não são administradores por padrão
             });
+            showNotification('success', 'Cadastro realizado com sucesso!')
 
-            alert('Cadastro realizado com sucesso!');
             signupModal.style.display = 'none';
         } catch (error) {
             alert('Erro ao cadastrar: ' + error.message);
@@ -82,7 +83,7 @@ function setupLogout() {
     const logoutBtn = document.getElementById('logout-btn');
     logoutBtn.addEventListener('click', () => {
         firebase.auth().signOut().then(() => {
-            alert('Logout realizado com sucesso!');
+            showNotification('success', 'Logout realizado com sucesso!')
             logoutBtn.style.display = 'none';
             document.getElementById('login-btn').style.display = 'block';
         }).catch((error) => {

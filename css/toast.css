@@ -1,0 +1,21 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+  }
+  .success { background-color: #4CB050; }
+  .error { background-color: #E51C24; }
+  .info { background-color: #9C28B1; }
+  .warning { background-color: #FF9700; }
+
+  .close-btn{
+    cursor: pointer;
+  }
+
+  

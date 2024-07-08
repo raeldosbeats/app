@@ -16,7 +16,7 @@ function setupLogout() {
     const logoutBtn = document.getElementById('admLogout');
     logoutBtn.addEventListener('click', () => {
         firebase.auth().signOut().then(() => {
-            alert('Logout realizado com sucesso!');
+            showNotification('success', 'Logout realizado com sucesso!')
         }).catch((error) => {
             alert('Erro ao fazer logout: ' + error.message);
         });
@@ -62,7 +62,8 @@ async function loadUsers() {
 async function toggleAdmin(userId, isAdmin) {
     try {
         await db.collection('users').doc(userId).update({ isAdmin });
-        alert('Papel atualizado com sucesso.');
+        showNotification('success', 'Nível de acesso atualizado com sucesso!')
+        
         window.location.reload();
     } catch (error) {
         console.error('Erro ao atualizar papel:', error);
@@ -109,12 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 likes: 0
             };
             await firebase.firestore().collection('beats').add(beatData);
-
-            alert('Beat registrado com sucesso!');
+            showNotification('success', 'Beat registrado com sucesso!')
             beatForm.reset();
         } catch (error) {
             console.error('Erro ao registrar beat:', error);
-            alert('Erro ao registrar beat. Verifique o console para mais detalhes.');
+            showNotification('error', 'Erro ao registrar beat. Verifique o console para mais detalhes.')
         }
     });
 });

@@ -27,6 +27,8 @@ function loadTrack(index) {
   trackImg.src = tracks[index].img;
   trackTitle.textContent = tracks[index].title;
   trackArtist.textContent = 'by ' + tracks[index].artist;
+  progressBar.value = 0;
+  currentTimeElem.textContent = '0:00'
   durationElem.textContent = formatTime(tracks[index].duration);
   muteBtn.innerHTML = `<i class="bi bi-volume-up-fill"></i>`;
 }
@@ -87,11 +89,11 @@ function handleTrackEnd() {
   nextTrack();
 }
 
-// Função para dar like em um beat
+// Função para dar ou remover like em um beat
 function likeBeat(beatId) {
   var user = firebase.auth().currentUser;
   if (!user) {
-    alert("Você precisa estar logado para dar like.");
+    showNotification('error', 'Você precisa estar logado para dar like');
     return;
   }
 
@@ -100,17 +102,29 @@ function likeBeat(beatId) {
   // Verifica se o usuário já deu like no beat
   var userLikesRef = db.collection('userLikes').doc(user.uid).collection('likes').doc(beatId);
   userLikesRef.get().then((doc) => {
+    const likeIcon = document.querySelector(`.beat-card[data-id="${beatId}"] .bi-heart`);
+
     if (doc.exists) {
-      alert("Você já deu like nesse beat.");
+      // Se o like já existe, remove o like
+      beatRef.update({
+        likes: firebase.firestore.FieldValue.increment(-1)
+      }).then(() => {
+        userLikesRef.delete();
+        likeIcon.classList.remove('text-danger');
+        showNotification('warning', 'Você removeu o like do beat.');
+      }).catch((error) => {
+        console.error("Erro ao remover like: ", error);
+      });
     } else {
-      // Incrementa o campo likes
+      // Se o like não existe, adiciona o like
       beatRef.update({
         likes: firebase.firestore.FieldValue.increment(1)
       }).then(() => {
-        // Adiciona o beat ao conjunto de likes do usuário
         userLikesRef.set({
           likedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
+        likeIcon.classList.add('text-danger');
+        showNotification('success', 'Você deu like no beat.');
       }).catch((error) => {
         console.error("Erro ao dar like: ", error);
       });
@@ -129,7 +143,7 @@ function createBeatCards() {
     card.classList.add('beat-card');
     card.dataset.id = track.id; // Adiciona um atributo data-id para identificar o beat
 
-    card.innerHTML = `
+    card.innerHTML = `        
         <div class="cardHeader">
         <img src="https://github.com/raeldosbeats.png" alt="">
         by <small><strong>${track.artist}</strong></small>
@@ -144,10 +158,9 @@ function createBeatCards() {
             <li>Fm</li>
           </ul>
         </div>
-
         <div class="infoBeatTitleGenrePrice">
           <div class="cardTitleBeat">
-            <strong><a href="details.html?b=${track.title}">${track.title}</a></strong>
+            <strong><a href="">${track.title}</a></strong>
             <i id="buy" class="bi bi-bag-plus"></i>
           </div>
           <div class="cardGenreBeat">
@@ -178,6 +191,29 @@ function createBeatCards() {
     });
 
     container.appendChild(card);
+  });
+
+  // Verifica o estado do like de cada beat para o usuário atual
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      tracks.forEach(track => {
+        const userLikesRef = db.collection('userLikes').doc(user.uid).collection('likes').doc(track.id);
+        userLikesRef.get().then(doc => {
+          if (doc.exists) {
+            const likeIcon = document.querySelector(`.beat-card[data-id="${track.id}"] .bi-heart`);
+            likeIcon.classList.add('text-danger');
+          }
+        }).catch(error => {
+          console.error("Erro ao verificar like: ", error);
+        });
+      });
+    } else {
+      // Remove a classe text-danger de todos os ícones de like
+      const likeIcons = document.querySelectorAll('.bi-heart');
+      likeIcons.forEach(icon => {
+        icon.classList.remove('text-danger');
+      });
+    }
   });
 }
 
@@ -242,4 +278,6 @@ function loadBeatsFromFirestore() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', loadBeatsFromFirestore);
+document.addEventListener('DOMContentLoaded', () => {
+  loadBeatsFromFirestore();
+});

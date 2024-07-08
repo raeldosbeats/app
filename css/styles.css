@@ -177,11 +177,20 @@ header .auth-buttons button:hover {
   font-size: 1.8rem;
 }
 
+.controls #play-pause-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .controls #play-pause-btn i:hover {
   color: #F6AD55;
 }
 
 .controls #prev-btn i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #222;
   border-radius: 50%;
   font-size: 1.2rem !important;
@@ -189,6 +198,9 @@ header .auth-buttons button:hover {
 }
 
 .controls #next-btn i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #222;
   border-radius: 50%;
   font-size: 1.2rem !important;
@@ -491,4 +503,8 @@ input[type=range] {
 
 #logout-btn{
   display: none;
+}
+
+.text-danger{
+  color:firebrick;
 }
