@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script>
+</head>
+<body>
+    
+    <div id="containerAdm" class="container">
+        <h1>Painel ADM</h1>
+        <div class="admMenu">
+            <a href="../index.html">Início</a>
+            <button id="admLogout">Logout</button>
+        </div>
+        
+
+        <h2>Registrar Beat Instrumental</h2>
+        <form id="beatForm">
+            <label for="beatTitle">Título:</label>
+            <input type="text" id="beatTitle" placeholder="Informe o título do beat" name="beatTitle" required>
+
+            <label for="beatMaker">BeatMaker:</label>
+            <input type="text" id="beatMaker" placeholder="Informe o nome do beatmaker" name="beatMaker" required>
+            
+            <label for="beatImage">Upload da Capa:</label>
+            <input type="file" id="beatImage" name="beatImage" accept="image/*" required>
+            
+            <label for="beatFile">Upload do Beat (mp3)</label>
+            <input type="file" id="beatFile" name="beatFile" accept="audio/mp3" required>
+
+            <label for="beatGenre">Gênero:</label>
+            <input type="text" id="beatGenre" name="beatGenre" placeholder="Informe o gênero do beat" required>
+
+            <label for="beatPrice">Preço:</label>
+            <input type="text" id="beatPrice" name="beatPrice" placeholder="Informe o preço atual do beat" required>
+
+            <label for="beatPriceNoPromo">Preço sem Promo:</label>
+            <input type="text" id="beatPriceNoPromo" name="beatPriceNoPromo" placeholder="Informe o antigo preço do beat" required>
+            
+            <button type="submit">Registrar Beat</button>
+        </form>
+
+        <div class="listUsers">
+            <h2>Lista de Usuários Cadastrados</h2>
+            <div id="user-list"></div>
+        </div>
+
+    </div>
+
+    
+
+    <script src="../js/firebase.js"></script>
+    <script src="../js/admin.js"></script>
+    
+</body>
+</html>

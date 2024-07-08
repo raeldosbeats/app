@@ -1,0 +1,494 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to top, #000000, #1e1e1e);
+
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img{
+  width: 140px;
+}
+
+.menuLogo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.menuLogo h3 {
+  display: flex;
+  align-items: center;
+}
+
+header nav .menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav .menu li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+header .auth-buttons {
+  display: flex;
+}
+
+header .auth-buttons button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+header .auth-buttons button:hover {
+  background-color: #777;
+}
+
+.music-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #161616;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+}
+
+.track-info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.track-info img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.track-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#track-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#track-artist {
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.bi-skip-start-circle-fill,
+.bi-skip-end-circle-fill {
+  color: white;
+}
+
+.bi-play-circle-fill,
+.bi-pause-circle-fill {
+  color: #FBD38D;
+}
+
+.cardTitleBeat{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardTitleBeat i{
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all .1s;
+
+}
+
+.cardTitleBeat i:hover{
+  color: #999;
+}
+
+.cardTitleBeat a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.controls i {
+  font-size: 1.8rem;
+}
+
+.controls #play-pause-btn i:hover {
+  color: #F6AD55;
+}
+
+.controls #prev-btn i {
+  background-color: #222;
+  border-radius: 50%;
+  font-size: 1.2rem !important;
+  padding: 5px;
+}
+
+.controls #next-btn i {
+  background-color: #222;
+  border-radius: 50%;
+  font-size: 1.2rem !important;
+  padding: 5px;
+}
+
+.controls #prev-btn i:hover {
+  background-color: #333;
+}
+
+.controls #next-btn i:hover {
+  background-color: #333;
+}
+
+.controlsPlayProgress {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 2;
+}
+
+.progress-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.progress-container span {
+  font-size: 0.8rem;
+}
+
+#progress-bar,
+#volume-slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+.volume-control {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: end;
+}
+
+.volume-control i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eee;
+}
+
+#volume-slider {
+  margin-left: 10px;
+}
+
+#mute-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+input[type=range] {
+  height: 4px;
+}
+
+#volume-slider {
+  width: 80px;
+}
+
+.contentGeral {
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(to top, #000000, blueviolet);
+  padding-bottom: 200px;
+
+}
+
+.content h1 {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.containerCard {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.beat-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 1rem;
+  border: 1px solid #333;
+  transition: all .2s;
+}
+
+.beat-card:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #8888;
+}
+
+.cardHeader {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #ddd;
+  font-size: 0.8rem;
+}
+
+.cardHeader img {
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cardHeader small {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.cardHeader .cardImg {
+  width: 100%;
+  background-color: blueviolet;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  cursor: pointer;
+  
+}
+
+.cardInfoBeatBpmKey {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  
+}
+
+.cardInfoBeatBpmKey ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px
+  
+}
+
+.cardInfoBeatBpmKey ul li {
+  padding: 10px;
+  background-color: #272128;
+  border-radius: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.infoBeatTitleGenrePrice {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footerPriceAndLike {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prices {
+  display: flex;
+  gap: 10px;
+}
+
+.priceRiscado {
+  text-decoration: line-through;
+  color: crimson;
+}
+
+.favorite {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.favorite i {
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all .1s;
+}
+
+.favorite i:hover {
+  color: #555;
+}
+
+
+
+
+@media (max-width: 600px) {
+
+  .auth-buttons-mobile {
+    display: block;
+  }
+
+  .auth-buttons-mobile i {
+    font-size: 1.4rem;
+  }
+
+  .beat-card {
+    width: 70%;
+  }
+
+  .cardImg {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cardImg img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .cardInfoBeatBpmKey {
+    display: flex;
+    justify-content: center;
+  }
+
+  .music-player {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, #000000, #1e1e1e);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 0;
+
+  }
+
+  .music-player .track-info {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .controls i {
+    font-size: 2.4rem;
+  }
+
+  .progress-container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    padding: 10px 0;
+  }
+
+  .volume-control {
+    display: none;
+  }
+
+  #menu {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  
+}
+
+#logout-btn{
+  display: none;
+}

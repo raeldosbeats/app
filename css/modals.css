@@ -1,0 +1,122 @@
+/* Estilo do Modal */
+.modal {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo semitransparente */
+}
+
+.modal-content {
+    background-color: #19191A;
+    margin: 10% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 0.4rem;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #eee;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label,
+form input {
+    margin-bottom: 10px;
+}
+
+form input {
+    padding-left: 10px;
+    height: 45px;
+    border: 1px solid #2E2E2F;
+    border-radius: 0.4rem;
+    background-color: #19191A;
+    color: white;
+    font-weight: bold;
+}
+
+form label{
+    color: #EDE9E7;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+form button[type=submit] {
+    padding: 15px;
+    background-color: #103FEF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: all .1s;
+}
+
+form button[type=submit]:hover {
+    background-color: rgb(41, 85, 245)
+}
+
+h2{
+    color: #EDE9E7;
+}
+
+.auth-redes{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.auth-redes img{
+    width: 55px;
+    padding: 5px;
+    border: 1px solid #444;;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.infoCadLogin{
+    color: #ccc;
+    display: flex;
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.infoCadLogin small{
+    font-size: 0.9rem;
+}
+
+.infoCadLogin > button{
+    all: unset;
+    font-size: 0.9rem;
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.infoCadLogin > button:hover{
+    color: rgb(10, 110, 211);
+}
